@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>סַיְמוֹן – מִשְׂחַק זִכָּרוֹן צְבָעִים</title>
+    <meta name="description" content="מִשְׂחַק סַיְמוֹן לִילָדִים בְּגִילָּאֵי 4–5. תִּרְגּוּל זִכָּרוֹן חָזוּתִי וְקוֹלִי בְּעִבְרִית." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar" aria-label="סַרְגֵּל עֶלְיוֹן">
+      <h1 class="title" aria-label="שֵׁם הַמִּשְׂחָק">סַיְמוֹן</h1>
+      <div class="status" aria-live="polite">
+        <span id="levelLabel">שָׁלָב: <strong id="level">1</strong></span>
+        <span id="scoreLabel">נְקֻדּוֹת: <strong id="scoreValue">0</strong></span>
+        <span id="message" class="message" role="status"></span>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="progress-wrap" aria-label="הִתְקַדְּמוּת לְ-70">
+        <div id="progressBar" class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="70" aria-valuenow="0">
+          <div id="progressBarFill" class="progress-bar" style="width:0%"></div>
+        </div>
+        <div class="progress-note" aria-hidden="true">0 / 70</div>
+      </section>
+
+  <section class="board-wrap" aria-label="לוּחַ הַמִּשְׂחָק">
+        <div id="board" class="board" aria-describedby="boardHint">
+          <button class="quad green"  data-color="green"  aria-label="יָרֹק"  title="יָרֹק"></button>
+          <button class="quad red"    data-color="red"    aria-label="אָדֹם"  title="אָדֹם"></button>
+          <button class="quad blue"   data-color="blue"   aria-label="כָּחֹל"  title="כָּחֹל"></button>
+          <button class="quad yellow" data-color="yellow" aria-label="צָהֹב"  title="צָהֹב"></button>
+
+          <div class="hub">
+            <div class="hub-content">
+              <button id="startBtn" class="start" aria-label="הַתְחֵל מִשְׂחָק" title="הַתְחֵל מִשְׂחָק">הַתְחֵל</button>
+            </div>
+          </div>
+        </div>
+        <p id="boardHint" class="sr-only">לַחֲצוּ עַל הַצְּבָעִים עַל־פִּי הָרֶצֶף שֶׁהוּשְׁמַע וְהוּאָר.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span lang="es" dir="ltr">© 2025 Lucas Benezra. Todos los derechos reservados.</span>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+  </html>

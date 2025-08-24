@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>נִצַּחְתֶּם!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+      :root { --bg: #0f1220; --text: #fff; --accent: #7c4dff; --green:#16c172; --yellow:#ffd54f; --blue:#48a4ff; --pink:#ff6ec7; }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body { margin: 0; font-family: 'Heebo', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: radial-gradient(1200px 800px at 70% -10%, #1a1f3a 0%, var(--bg) 40%, #0a0c17 100%); color: var(--text); overflow: hidden; }
+      .stage { position: relative; width: 100%; height: 100%; display: grid; place-items: center; }
+      .confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+      .confetti i { position: absolute; width: 10px; height: 16px; opacity: .9; border-radius: 2px; animation: fall linear forwards; }
+      @keyframes fall { to { transform: translateY(110vh) rotate(540deg); opacity: 1; } }
+  .card { text-align: center; padding: 28px 24px; max-width: 520px; background: rgba(255,255,255,.06); border: 3px solid rgba(255,255,255,.15); border-radius: 20px; box-shadow: 0 12px 36px rgba(0,0,0,.45); backdrop-filter: blur(4px); animation: pop .6s ease both; }
+  @keyframes pop { from { transform: scale(.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  h1 { margin: 0 0 10px; font-size: clamp(32px, 7vw, 58px); letter-spacing: 1px; text-shadow: 0 4px 18px rgba(72,164,255,.5); background: linear-gradient(90deg, var(--yellow), var(--green), var(--blue), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; animation: hue 4s linear infinite; }
+  @keyframes hue { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } }
+      p { margin: 0 0 18px; font-size: clamp(18px, 4vw, 22px); opacity: .95; }
+  .btn { border: none; border-radius: 18px; padding: 14px 20px; font-size: clamp(18px,4.5vw,22px); font-weight: 900; color: #0b0e1a; background: linear-gradient(135deg, var(--yellow), var(--green)); cursor: pointer; box-shadow: 0 10px 20px rgba(22,193,114,.45); transform: translateY(0); transition: transform .08s ease; }
+  .btn:active { transform: translateY(2px) scale(0.99); }
+      .stars { position: absolute; inset: 0; background: radial-gradient(1200px 800px at 30% -10%, rgba(255,255,255,.08), rgba(0,0,0,0)); pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="stars"></div>
+      <div class="confetti" id="confetti"></div>
+      <div class="card" role="dialog" aria-labelledby="title" aria-describedby="desc">
+        <h1 id="title">יֵשׁ! נִצַּחְתֶּם 🎉</h1>
+  <p id="desc">הִגַּעְתֶּם לְ-70 נְקֻדּוֹת. רוֹצִים לְשַׂחֵק עוֹד פַּעַם?</p>
+        <button class="btn" onclick="location.href='index.html'" aria-label="חִזְרוּ לְמִשְׂחָק סַיְמוֹן">חֲזֹרוּ לַמִּשְׂחָק</button>
+      </div>
+      <div style="position: absolute; bottom: 10px; width: 100%; text-align: center; opacity: .75; font-size: 14px;">
+        <span lang="es" dir="ltr">© 2025 Lucas Benezra. Todos los derechos reservados.</span>
+      </div>
+    </div>
+    <script>
+      // Confeti simple: elementos <i> que caen con colores variados
+      const colors = ['#ffd54f', '#16c172', '#48a4ff', '#ff6ec7', '#ffffff'];
+      const confetti = document.getElementById('confetti');
+      const count = 80;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('i');
+        const left = Math.random() * 100;
+        const delay = Math.random() * 1.2;
+        const dur = 1.8 + Math.random() * 1.6;
+        const size = 8 + Math.random() * 10;
+        p.style.left = left + 'vw';
+        p.style.top = (-10 - Math.random() * 20) + 'vh';
+        p.style.background = colors[i % colors.length];
+        p.style.width = size + 'px';
+        p.style.height = (size * 1.6) + 'px';
+        p.style.animationDuration = dur + 's';
+        p.style.animationDelay = delay + 's';
+        confetti.appendChild(p);
+      }
+    </script>
+  </body>
+</html>
