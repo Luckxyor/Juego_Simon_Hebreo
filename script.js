@@ -164,7 +164,7 @@
   function updateScore(n) {
     if (scoreEl) scoreEl.textContent = String(n);
     if (progressFill) {
-      const max = 70;
+      const max = 50;
       const clamped = Math.max(0, Math.min(max, n));
       const percent = (clamped / max) * 100;
       progressFill.style.width = `${percent}%`;
@@ -190,7 +190,7 @@
     // sumar puntaje por ronda
     score += 10;
     updateScore(score);
-  if (score >= 70) {
+  if (score >= 50) {
       // pequeña pausa y redirección a pantalla de victoria
       await sleep(600);
       window.location.href = 'win.html';
